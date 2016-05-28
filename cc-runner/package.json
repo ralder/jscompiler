@@ -1,0 +1,88 @@
+{
+  "_args": [
+    [
+      "cc-runner@0.0.3"
+    ]
+  ],
+  "_from": "cc-runner@0.0.3",
+  "_id": "cc-runner@0.0.3",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/cc-runner",
+  "_nodeVersion": "5.10.1",
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com"
+  },
+  "_npmUser": {
+    "email": "monai@cure.lt",
+    "name": "monai"
+  },
+  "_npmVersion": "3.8.3",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "cc-runner",
+    "raw": "cc-runner@0.0.3",
+    "rawSpec": "0.0.3",
+    "scope": null,
+    "spec": "0.0.3",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cc-runner/-/cc-runner-0.0.3.tgz",
+  "_shasum": "3176660917484f0143cc6deb258959f1c657258a",
+  "_shrinkwrap": null,
+  "_spec": "cc-runner@0.0.3",
+  "author": {
+    "name": "Adform"
+  },
+  "bugs": {
+    "url": "https://github.com/adform/node-cc-runner/issues"
+  },
+  "dependencies": {
+    "async": "^1.5.2",
+    "locate-java-home": "^0.1.5",
+    "stream-util2": "^0.0.3"
+  },
+  "description": "Closure Compiler Runner",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "3176660917484f0143cc6deb258959f1c657258a",
+    "tarball": "https://registry.npmjs.org/cc-runner/-/cc-runner-0.0.3.tgz"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "files": [
+    "index.js"
+  ],
+  "gitHead": "86ab16b945d91711261937de659cfdcfec70a77a",
+  "homepage": "https://github.com/adform/node-cc-runner#readme",
+  "keywords": [
+    "closure",
+    "compiler",
+    "minify"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "email": "monai@cure.lt",
+      "name": "monai"
+    }
+  ],
+  "name": "cc-runner",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adform/node-cc-runner.git"
+  },
+  "scripts": {
+    "install": "curl -O -L https://github.com/monai/cc-web-runner/releases/download/v1.0.7/cc-web-runner-standalone-1.0.7.jar",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.3"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "jscompiler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cc-runner": "file:cc-runner",
+    "chalk": "^1.1.3",
+    "gulp-watch": "^4.3.6",
+    "iconv-lite": "^0.4.13",
+    "jshint": "^2.9.2",
+    "node-notifier": "^4.6.0",
+    "node-svn-ultimate": "^1.0.3"
+  }
+}

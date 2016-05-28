@@ -1,0 +1,119 @@
+module.exports = {
+    debug: true,
+    removeOldBeforeCompile: true,
+    watchFiles: '../www/js/**/*-dev.js',
+    renameRegex: [/-dev.js$/, '.js'],
+    enableNotify: true,
+    checkSVN: true,
+
+    jshint: {
+        config: {
+            undef: true,
+            unused: true,
+            curly: true,
+            esversion: 6,
+            funcscope: true,
+            futurehostile: true,
+            latedef: true,
+            nonbsp: true,
+            nonew: true,
+            browser: true,
+            jquery: true,
+            devel: true,
+            expr: true
+        },
+        
+        globals: {
+            Env: true,
+            netlog_r: true,
+            netlog_js: true,
+            nl_count_params: true
+        }
+    },
+
+    gcc: {
+        options: {
+            outputCharset: 'windows-1251',
+            languageIn: 'ECMASCRIPT6_STRICT',
+            languageOut: 'ECMASCRIPT3',
+            trustedStrings: true,
+            checkSuspiciousCode: true,
+
+            checkSymbols: false,
+            checkGlobalThisLevel: 'WARNING',
+            checkGlobalNamesLevel: 'WARNING',
+            checkTypes: false,
+        },
+
+        optimizations: {
+            level: 'SIMPLE_OPTIMIZATIONS'
+        },
+
+        externs: [
+            './externs/jquery-1.7.defs'
+        ]
+    },
+
+    notification: {
+        'error': {
+            color: 'red',
+            consoleTitle: 'ERROR',
+            notify: {
+                title: 'Error',
+                //icon: '/Users/sergey/work/hosting/tophotels.ru/www/i/remove.png',
+                icon: './icons/error.png',
+                sound: true, // mac or win 8+
+            }
+        },
+
+        'warning': {
+            color: 'yellow',
+            consoleTitle: 'WARNING',
+            notify: {
+                title: 'Warning',
+                icon: './icons/warning.png',
+                //icon: '/Users/sergey/work/hosting/tophotels.ru/www/i/remove.png',
+                sound: false
+            }
+        },
+
+        'success-warnings': {
+            color: 'cyan',
+            consoleTitle: 'SUCCESS WITH WARNINGS',
+            notify: {
+                title: 'Sucess with warnings',
+                icon: './icons/warning.png',
+                //icon: '/Users/sergey/work/hosting/tophotels.ru/www/i/remove.png',
+                sound: false
+            }
+        },
+
+        'success': {
+            color: 'green',
+            consoleTitle: 'SUCCESS',
+            notify: {
+                title: 'Success',
+                icon: './icons/success.png',
+                //icon: '/Users/sergey/work/hosting/tophotels.ru/www/i/check-mark.png',
+                sound: false
+            }
+        },
+    },
+
+    server: {
+        "jar": "cc-web-runner-standalone-1.0.5.jar",
+        "javaArgs": [
+            "-server",
+            "-Djava.awt.headless=true",
+            "-Xmn10m",
+            "-Xmx30m",  
+            "-Xms24m",  
+            "-XX:MaxMetaspaceSize=30m",
+            "-XX:+AggressiveOpts", 
+            "-XX:+DoEscapeAnalysis",
+            "-XX:+UseCompressedOops",
+            "-XX:+EliminateLocks",
+            "-XX:+OptimizeStringConcat"
+        ]
+    }
+};
