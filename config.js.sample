@@ -101,7 +101,7 @@ module.exports = {
     },
 
     server: {
-        "jar": "cc-web-runner-standalone-1.0.5.jar",
+        "jar": "cc-web-runner-standalone-1.0.7.jar",
         "javaArgs": [
             "-server",
             "-Djava.awt.headless=true",

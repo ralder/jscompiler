@@ -1,15 +1,15 @@
 {
   "name": "jscompiler",
   "version": "1.0.0",
-  "description": "",
+  "description": "tx js watch && compile with gcc",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "cd cc-runner && npm i"
   },
-  "author": "",
+  "author": "ralder",
   "license": "ISC",
   "dependencies": {
-    "cc-runner": "file:cc-runner",
     "chalk": "^1.1.3",
     "gulp-watch": "^4.3.6",
     "iconv-lite": "^0.4.13",

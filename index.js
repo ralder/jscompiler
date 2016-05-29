@@ -3,6 +3,7 @@
 const path = require('path');
 const fs = require('fs');
 const util = require('util');
+const isWin = require('os').platform() == 'win32';
 
 const watch = require('gulp-watch');
 const iconv = require('iconv-lite');
@@ -172,6 +173,10 @@ function alert(type, message, showNotify = true) {
     console.log(colors[msgObj.color](`[${msgObj.consoleTitle}]`) + ` (${nowTime}) ${message}\n`);
 
     if (OPTIONS.enableNotify && showNotify) {
+        if (isWin) {
+            message = message.replace(/\n/, ' ');
+        }
+
         const notifyOptions = Object.assign(msgObj.notify, { message: message });
         notifyOptions.icon = path.resolve(__dirname, notifyOptions.icon);
         notifier.notify(notifyOptions);

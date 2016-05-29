@@ -94,7 +94,7 @@ function startRunner(runner, next) {
   var args = [
     '-Dport='+ options.port,
     '-jar', path.resolve(__dirname, options.jar)
-  ].concat((options.javaArgs || []));
+  ].concat(options.javaArgs || []);
 
   debug('Execute runner: %s %s', options.java, args.join(' '));
   options.cp = spawn(options.java, args);
