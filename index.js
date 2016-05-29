@@ -41,8 +41,6 @@ compiler.on('listening', () => {
     debug(`Watch dir: ${absWatchFiles}`);
 
     watch(absWatchFiles, {verbose: OPTIONS.debug, events: ['change', 'add']}, (file) => {
-        console.time('svn');
-        console.time('full');
         if (!file.isBuffer()) {
             alert('error', 'Unhandled error - no file buffer');
             return;
@@ -51,25 +49,8 @@ compiler.on('listening', () => {
         const compiledFilename = file.path.replace.apply(file.path, OPTIONS.renameRegex);
 
         checkIsMineChanges(file.path, compiledFilename, () => {
-            console.timeEnd('svn');
             console.log('----------------------------------------------------------');
-                /*
-            if (OPTIONS.removeOldBeforeCompile) {
-                fs.access(newFilename, fs.F_OK, (err) => {
-                    if (!err) {
-                        fs.unlink(newFilename);
-                    }
-                });
-            }
 
-            fs.readFile(filename.path, (err, buf) => {
-                if (err) {
-                    alert('error', `Error read file - ${err}`);
-                    return;
-                }
-
-            */
-            //const code = iconv.decode(buf, 'win1251');
             const code = iconv.decode(file.contents, 'win1251');
             const compileOptions = Object.assign(OPTIONS.gcc, {
                 sources: [{
@@ -80,23 +61,11 @@ compiler.on('listening', () => {
 
             compiler.compile(compileOptions, onCompile.bind(null, compiledFilename));
 
-            console.time('jshint');
             jshint(code, OPTIONS.jshint.config, OPTIONS.jshint.globals);
-            console.timeEnd('jshint');
             jshintErrors[path.basename(compiledFilename)] = jshint.errors;
-            //});
         });
     });
 });
-
-
-/*
-
-compiler.on('error', (err) => { });
-
-process.on('error', () => { });
-
-*/
 
 process.on('uncaughtException', function (err) {
     alert('error', `UncaughtException: ${err}`);
@@ -124,9 +93,7 @@ function onCompile(newFileName, error, res) {
         return;
     }
 
-    console.time('write');
     fs.writeFile(newFileName, iconv.encode(res.source, 'win1251'), (err) => {
-        console.timeEnd('write');
         if (err) {
             alert('error', `Error save file -  ${err}`);
             throw err;
@@ -135,8 +102,6 @@ function onCompile(newFileName, error, res) {
         const message = 'File compiled: ' + path.basename(newFileName);
         const hints = jshintErrors[path.basename(newFileName)] || [];
         const countWarnings  = res.result.warnings.length + hints.length;
-
-        console.timeEnd('full');
 
         if (countWarnings) {
             alert('success-warnings', `${message}\nWith warnings (${countWarnings})`);
