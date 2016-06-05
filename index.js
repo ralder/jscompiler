@@ -7,7 +7,7 @@ const isWin = require('os').platform() == 'win32';
 
 const watch = require('gulp-watch');
 const iconv = require('iconv-lite');
-const compilerServerStart = require('./cc-runner/');
+const compilerServerStart = require('cc-runner');
 const jshint = require('jshint').JSHINT;
 const svn = require('node-svn-ultimate');
 const notifier = require('node-notifier');
