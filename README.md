@@ -26,12 +26,13 @@
 ## установка на ubuntu или debian
 1. `curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -`
 2. `sudo apt-get install nodejs`
-3. `sudo apt-get install git subversion`
-4. `git clone https://github.com/ralder/jscompiler`
-5. `cd jscompiler`
-6. `npm install`
-7. `cp config.js.sample config.js`
-8. если устанавливать в папку с проектом то config.js можно не править, иначе нужно в параметре watchFiles прописать абсолютный путь
+3. если нет java (https://www.digitalocean.com/community/tutorials/java-ubuntu-apt-get-ru) 
+4. `sudo apt-get install git subversion` (возможно уже установленны)
+5. `git clone https://github.com/ralder/jscompiler`
+6. `cd jscompiler`
+7. `npm install`
+8. `cp config.js.sample config.js`
+9. если устанавливать в папку с проектом то config.js можно не править, иначе нужно в параметре watchFiles прописать абсолютный путь
 
 ## запуск
 - из папки jscompiler `node index.js`
